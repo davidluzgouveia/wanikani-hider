@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         WaniKani Hider
 // @namespace    http://www.david-gouveia.com/
-// @version      1.0
+// @version      1.1
 // @description  Hides solutions until you hover while browsing content by level on WaniKani
 // @author       David Gouveia
 // @match        https://www.wanikani.com/kanji?difficulty=*
@@ -12,11 +12,14 @@
 // ==/UserScript==
 
 (function() {
-    'use strict';
-    for(let item of document.getElementsByClassName("character-item")) {
-        let ul = item.getElementsByTagName("ul")[0];
-        ul.style.visibility = "hidden";
-        item.addEventListener("mouseenter", () => ul.style.visibility = "visible");
-        item.addEventListener("mouseleave", () => ul.style.visibility = "hidden");
-    }
+  "use strict";
+  for (let item of document.getElementsByClassName("character-item")) {
+    let ul = item.getElementsByTagName("ul")[0];
+    ul.style.visibility = "hidden";
+    item.addEventListener(
+      "mouseenter",
+      () => (ul.style.visibility = "visible")
+    );
+    item.addEventListener("mouseleave", () => (ul.style.visibility = "hidden"));
+  }
 })();
